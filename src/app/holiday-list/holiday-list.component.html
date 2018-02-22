@@ -1,0 +1,7 @@
+<mat-list role="list" *ngIf="holidays$ | async as holidays else noData">
+  <mat-list-item role="listitem" *ngFor="let holiday of holidays[1]; let i = index">
+    <a href="#" (click)="hideme[i] = !hideme[i]">{{ holiday.name }}</a>
+    <app-holiday-details [hidden]="!hideme[i]" [holiday]="holiday"></app-holiday-details>
+  </mat-list-item>
+</mat-list>
+<ng-template #noData>No Data Available</ng-template>
